@@ -88,17 +88,19 @@
     }
     .hero-left {
       width: 100%;
-      padding: 5rem 5rem 5rem 5rem;
+      padding: 5rem 4rem 5rem 4rem;
       display: flex; flex-direction: column; justify-content: center;
       position: relative; z-index: 1;
+      overflow: hidden;
     }
     .hero-eyebrow { margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.7s 0.2s ease forwards; }
     .hero-title {
       font-family: var(--serif);
-      font-size: clamp(5rem, 19vw, 24rem);
+      font-size: clamp(2rem, 8.5vw, 14rem);
       font-weight: 300;
-      line-height: 0.95;
+      line-height: 1;
       color: var(--crema);
+      white-space: nowrap;
       opacity: 0;
       animation: fadeUp 0.8s 0.4s ease forwards;
     }
@@ -290,11 +292,7 @@
     <section class="hero" id="inicio" aria-label="Portada">
       <div class="hero-left">
         <p class="hero-eyebrow u-label">Estudio Jurídico Penal</p>
-        <h1 class="hero-title">
-          Barreiro<br>
-          <span class="amp">&amp;</span><br>
-          <em>Barriola</em>
-        </h1>
+        <h1 class="hero-title">Barreiro <span class="amp">&amp;</span> <em>Barriola</em></h1>
         <div class="hero-divider" aria-hidden="true"></div>
         <!-- EDITAR: reemplazar con su propia descripción -->
         <p class="hero-desc">
