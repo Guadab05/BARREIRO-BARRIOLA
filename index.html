@@ -157,74 +157,74 @@
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
     /* EQUIPO */
-    #equipo { background: var(--negro); padding: 0; }
-
-    .equipo-header {
-      padding: 5rem 5rem 0;
-      display: flex; align-items: baseline; gap: 2rem;
-    }
-    .equipo-title {
-      font-family: var(--serif); font-size: 2.2rem;
-      font-weight: 300; color: rgba(244,239,229,0.25);
-      margin-top: 0.5rem;
-    }
+    #equipo { background: var(--blanco); padding: 6rem 0; }
+    .equipo-header { margin-bottom: 3.5rem; }
+    .equipo-title { font-family: var(--serif); font-size: 2.6rem; font-weight: 300; color: var(--negro); margin-top: 0.8rem; }
     .equipo-title em { font-style: italic; }
 
-    .team-split { display: grid; grid-template-columns: 1fr 1fr; }
+    .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
 
-    .team-person {
-      padding: 4rem 5rem 5rem;
-      position: relative; overflow: hidden;
-      border-top: 1px solid rgba(184,154,101,0.12);
-      transition: background var(--trans);
+    .team-card {
+      background: var(--crema-osc);
+      border: 1px solid var(--linea);
+      transition: box-shadow var(--trans), transform var(--trans);
     }
-    .team-person:first-child { border-right: 1px solid rgba(184,154,101,0.12); }
-    .team-person:hover { background: rgba(255,255,255,0.02); }
-
-    /* Inicial decorativa de fondo */
-    .team-person::before {
-      content: attr(data-inicial);
-      position: absolute;
-      right: -0.05em; bottom: -0.15em;
-      font-family: var(--serif);
-      font-size: 28rem;
-      font-weight: 300;
-      line-height: 1;
-      color: rgba(184,154,101,0.04);
-      pointer-events: none;
-      user-select: none;
+    .team-card:hover {
+      box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
     }
 
-    .team-num {
-      font-size: 0.65rem; letter-spacing: 0.22em;
-      text-transform: uppercase; color: var(--oro);
-      margin-bottom: 2.5rem; display: block;
+    /* Zona de foto — reemplazar con <img> cuando tengan las fotos */
+    .team-photo {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: var(--carbon);
+      overflow: hidden;
+      position: relative;
     }
+    .team-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: grayscale(15%);
+      transition: transform 0.6s ease;
+    }
+    .team-card:hover .team-photo img { transform: scale(1.03); }
+
+    /* Placeholder mientras no tienen foto */
+    .team-photo-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 0.8rem;
+    }
+    .team-photo-placeholder span {
+      font-family: var(--serif); font-size: 4rem; font-weight: 300;
+      color: rgba(184,154,101,0.3); line-height: 1;
+    }
+    .team-photo-placeholder small {
+      font-size: 0.65rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(232,226,214,0.2);
+    }
+
+    .team-info { padding: 2rem 2.2rem 2.2rem; }
+
     .team-name {
-      font-family: var(--serif);
-      font-size: clamp(2.4rem, 4vw, 4rem);
-      font-weight: 300; line-height: 1.05;
-      color: var(--crema); margin-bottom: 0.5rem;
+      font-family: var(--serif); font-size: 1.75rem;
+      font-weight: 400; color: var(--negro);
+      line-height: 1.1; margin-bottom: 0.3rem;
     }
     .team-rol {
-      font-size: 0.7rem; letter-spacing: 0.16em;
+      font-size: 0.68rem; letter-spacing: 0.14em;
       text-transform: uppercase; color: var(--oro);
-      margin-bottom: 2rem; display: block;
+      margin-bottom: 1.2rem; display: block;
     }
-    .team-bio {
-      font-size: 0.9rem; line-height: 1.85;
-      color: rgba(232,226,214,0.45);
-      max-width: 380px; position: relative; z-index: 1;
-    }
-    .team-tags {
-      display: flex; flex-wrap: wrap; gap: 0.4rem;
-      margin-top: 2rem; position: relative; z-index: 1;
-    }
+    .team-bio { font-size: 0.88rem; line-height: 1.85; color: var(--texto-suave); }
+    .team-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.5rem; }
     .tag {
-      font-size: 0.65rem; letter-spacing: 0.1em;
+      font-size: 0.65rem; letter-spacing: 0.09em;
       text-transform: uppercase; padding: 0.28rem 0.75rem;
-      border: 1px solid rgba(184,154,101,0.25);
-      color: rgba(232,226,214,0.4);
+      border: 1px solid rgba(184,154,101,0.3); color: var(--texto-suave);
     }
 
     /* FAQ */
@@ -307,10 +307,8 @@
       .areas-intro { padding: 4rem 1.5rem; border-right: none; border-bottom: 1px solid var(--linea); }
       .area-card { padding: 2.5rem 1.5rem; }
       #equipo, #faq, #contacto { padding: 5rem 0; }
-      .team-split { grid-template-columns: 1fr; }
-      .team-person { padding: 3rem 1.8rem; }
+      .team-grid { grid-template-columns: 1fr; }
       .team-person:first-child { border-right: none; border-bottom: 1px solid rgba(184,154,101,0.12); }
-      .team-person::before { font-size: 16rem; }
       .faq-grid { grid-template-columns: 1fr; gap: 0; }
       .contacto-layout { grid-template-columns: 1fr; gap: 3rem; }
       .form-row { grid-template-columns: 1fr; }
@@ -394,35 +392,54 @@
     </section>
 
     <section id="equipo" aria-labelledby="equipo-heading">
-      <header class="equipo-header reveal">
-        <p class="u-label">El equipo</p>
-        <h2 class="equipo-title" id="equipo-heading">&nbsp;— Quiénes <em>somos</em></h2>
-      </header>
+      <div class="wrapper">
+        <header class="equipo-header reveal">
+          <p class="u-label">El equipo</p>
+          <h2 class="equipo-title" id="equipo-heading">Quiénes <em>somos</em></h2>
+        </header>
 
-      <div class="team-split">
-        <article class="team-person reveal" data-inicial="G">
-          <span class="team-num">01</span>
-          <h3 class="team-name">Guadalupe<br>Barreiro</h3>
-          <span class="team-rol">Abogada — Co-fundadora</span>
-          <!-- Bio de Guadalupe: agregar recibida en, especialización, enfoque -->
-          <p class="team-bio"></p>
-          <div class="team-tags">
-            <span class="tag">Derecho Penal</span>
-            <span class="tag">Litigación Oral</span>
-          </div>
-        </article>
+        <div class="team-grid">
+          <article class="team-card reveal">
+            <div class="team-photo">
+              <!-- Cuando tengan la foto: <img src="guadalupe.jpg" alt="Guadalupe Barreiro" /> -->
+              <!-- Borrar el placeholder de abajo cuando agreguen la foto -->
+              <div class="team-photo-placeholder">
+                <span>GB</span>
+                <small>Foto próximamente</small>
+              </div>
+            </div>
+            <div class="team-info">
+              <h3 class="team-name">Guadalupe Barreiro</h3>
+              <span class="team-rol">Abogada — Co-fundadora</span>
+              <!-- Bio de Guadalupe -->
+              <p class="team-bio"></p>
+              <div class="team-tags">
+                <span class="tag">Derecho Penal</span>
+                <span class="tag">Litigación Oral</span>
+              </div>
+            </div>
+          </article>
 
-        <article class="team-person reveal" data-inicial="G">
-          <span class="team-num">02</span>
-          <h3 class="team-name">Guillermina<br>Barriola</h3>
-          <span class="team-rol">Abogada — Co-fundadora</span>
-          <!-- Bio de Guillermina: agregar recibida en, especialización, enfoque -->
-          <p class="team-bio"></p>
-          <div class="team-tags">
-            <span class="tag">Derecho Penal</span>
-            <span class="tag">Querella</span>
-          </div>
-        </article>
+          <article class="team-card reveal">
+            <div class="team-photo">
+              <!-- Cuando tengan la foto: <img src="guillermina.jpg" alt="Guillermina Barriola" /> -->
+              <div class="team-photo-placeholder">
+                <span>GB</span>
+                <small>Foto próximamente</small>
+              </div>
+            </div>
+            <div class="team-info">
+              <h3 class="team-name">Guillermina Barriola</h3>
+              <span class="team-rol">Abogada — Co-fundadora</span>
+              <!-- Bio de Guillermina -->
+              <p class="team-bio"></p>
+              <div class="team-tags">
+                <span class="tag">Derecho Penal</span>
+                <span class="tag">Querella</span>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
