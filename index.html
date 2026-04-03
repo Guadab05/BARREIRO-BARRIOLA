@@ -78,7 +78,7 @@
     .hero {
       min-height: 100vh;
       background: var(--carbon);
-      display: grid; grid-template-columns: 55% 45%;
+      display: flex;
       position: relative; overflow: hidden;
     }
     .hero::after {
@@ -87,7 +87,9 @@
       pointer-events: none;
     }
     .hero-left {
-      padding: 8rem 5rem 6rem 7rem;
+      width: 100%;
+      max-width: 860px;
+      padding: 8rem 7rem 6rem;
       display: flex; flex-direction: column; justify-content: center;
       position: relative; z-index: 1;
     }
@@ -299,13 +301,6 @@
           <a href="#contacto" class="btn btn-solid">Consultanos</a>
           <!-- EDITAR: reemplazar número -->
           <a href="https://wa.me/5491100000000" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp</a>
-        </div>
-      </div>
-      <div class="hero-right" aria-hidden="true">
-        <div class="hero-monogram">
-          <div class="mono-text">B<span class="amp">&amp;</span>B</div>
-          <div class="mono-line"></div>
-          <div class="mono-sub">Abogadas</div>
         </div>
       </div>
     </section>
